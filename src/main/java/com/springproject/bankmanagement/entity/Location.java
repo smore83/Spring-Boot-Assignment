@@ -22,9 +22,6 @@ public class Location {
     @Column(name = "location_id")
     private Long id;
 
-//    @Column(nullable = false)
-//    private String branchname;
-
     @Column(nullable = false)
     private String location;
 

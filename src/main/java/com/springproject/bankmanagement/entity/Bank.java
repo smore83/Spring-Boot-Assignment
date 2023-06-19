@@ -25,7 +25,7 @@ public class Bank {
     private String title;
 
     @Column(name = "IFSC")
-    private String ifsc;
+    private String ifscno;
 
    
 
@@ -51,5 +51,6 @@ public class Bank {
         this.id = l;
         this.title = s + s1;
     }
+
 }
 

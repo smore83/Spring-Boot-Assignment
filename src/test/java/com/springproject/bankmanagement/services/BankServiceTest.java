@@ -40,8 +40,8 @@ class BankServiceTest {
     @Test
     void testGetAllBanks() {
         List<Bank> banks = new ArrayList<>();
-        banks.add(new Bank(1L, "Bank 1","ISBN-1", new HashSet<>(), new HashSet<>()));
-        banks.add(new Bank(2L, "Bank 2", "ISBN-2", new HashSet<>(), new HashSet<>()));
+        banks.add(new Bank(1L, "Bank 1","ISFSC-1", new HashSet<>(), new HashSet<>()));
+        banks.add(new Bank(2L, "Bank 2", "ISFSC-2", new HashSet<>(), new HashSet<>()));
         when(bankRepository.findAll()).thenReturn(banks);
 
         List<Bank> result = bankService.getAllBanks();
@@ -53,7 +53,7 @@ class BankServiceTest {
 
     @Test
     void testGetBankById() {
-        Bank bank = new Bank(1L, "Bank 1", "ISBN-1", new HashSet<>(), new HashSet<>());
+        Bank bank = new Bank(1L, "Bank 1", "ISFSC-1", new HashSet<>(), new HashSet<>());
         when(bankRepository.findById(anyLong())).thenReturn(Optional.of(bank));
 
         Optional<Bank> result = bankService.getBankById(1L);
@@ -65,7 +65,7 @@ class BankServiceTest {
 
     @Test
     void testSaveBank() {
-        Bank bank = new Bank(1L, "Bank 1", "ISBN-1", new HashSet<>(), new HashSet<>());
+        Bank bank = new Bank(1L, "Bank 1", "ISFSC-1", new HashSet<>(), new HashSet<>());
         when(bankRepository.save(bank)).thenReturn(bank);
 
         Bank result = bankService.saveBank(bank);

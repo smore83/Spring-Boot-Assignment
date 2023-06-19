@@ -7,6 +7,7 @@ import com.springproject.bankmanagement.entity.Customer;
 import com.springproject.bankmanagement.entity.Bank;
 import com.springproject.bankmanagement.entity.Location;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -63,5 +64,30 @@ public class BankService {
         locationSet.add(location);
         bank.setLocations(locationSet);
         return bankRepository.save(bank);
+    }
+
+    public ResponseEntity<Bank> updateBank(Long id, Bank updatedBank) {
+        Optional<Bank> optionalBank = bankRepository.findById(id);
+        if (optionalBank.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        Bank existingBank = optionalBank.get();
+        existingBank.setCustomers(updatedBank.getCustomers());
+
+        Bank updatedBankEntity = bankRepository.save(existingBank);
+        return ResponseEntity.ok(updatedBankEntity);
+    }
+
+    public ResponseEntity<Void> deleteBankAll(Long id) {
+        Optional<Bank> optionalBank = bankRepository.findById(id);
+        if (optionalBank.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        Bank bank = optionalBank.get();
+        bankRepository.delete(bank);
+
+        return ResponseEntity.noContent().build();
     }
 }

@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/customers")
+@RequestMapping("/bank_mgmt/customers")
 public class CustomerController {
 
     private final CustomerService customerService;
@@ -33,6 +33,7 @@ public class CustomerController {
                 .toList();
         return new ResponseEntity<>(customerDTOs, HttpStatus.OK);
     }
+
 
     @GetMapping("/{id}")
     public ResponseEntity<CustomerDTO> getCustomerById(@PathVariable Long id) {

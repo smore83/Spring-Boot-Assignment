@@ -23,7 +23,7 @@ public class Location {
     private Long id;
 
     @Column(nullable = false)
-    private String location;
+    private String address;
 
     @JsonIgnore
     @ManyToMany(mappedBy = "locations")

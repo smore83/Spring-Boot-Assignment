@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/Locations")
+@RequestMapping("/bank_mgmt/Locations")
 public class LocationController {
 
     private final LocationService LocationService;

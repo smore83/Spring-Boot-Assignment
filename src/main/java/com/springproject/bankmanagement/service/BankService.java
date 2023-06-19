@@ -46,25 +46,25 @@ public class BankService {
         bankRepository.deleteById(id);
     }
 
-    public Bank assignCustomerToBank(Long bankId, Long customerId) {
-        Set<Customer> customerSet = null;
-        Bank bank = bankRepository.findById(bankId).get();
-        Customer customer = customerRepository.findById(customerId).get();
-        customerSet =  bank.getCustomers();
-        customerSet.add(customer);
-        bank.setCustomers(customerSet);
-        return bankRepository.save(bank);
-    }
-
-    public Bank assignLocationToBank(Long bankId, Long locationId) {
-        Set<Location> locationSet = null;
-        Bank bank = bankRepository.findById(bankId).get();
-        Location location = locationRepository.findById(locationId).get();
-        locationSet =  bank.getLocations();
-        locationSet.add(location);
-        bank.setLocations(locationSet);
-        return bankRepository.save(bank);
-    }
+//    public Bank assignCustomerToBank(Long bankId, Long customerId) {
+//        Set<Customer> customerSet = null;
+//        Bank bank = bankRepository.findById(bankId).get();
+//        Customer customer = customerRepository.findById(customerId).get();
+//        customerSet =  bank.getCustomers();
+//        customerSet.add(customer);
+//        bank.setCustomers(customerSet);
+//        return bankRepository.save(bank);
+//    }
+//
+//    public Bank assignLocationToBank(Long bankId, Long locationId) {
+//        Set<Location> locationSet = null;
+//        Bank bank = bankRepository.findById(bankId).get();
+//        Location location = locationRepository.findById(locationId).get();
+//        locationSet =  bank.getLocations();
+//        locationSet.add(location);
+//        bank.setLocations(locationSet);
+//        return bankRepository.save(bank);
+//    }
 
     public ResponseEntity<Bank> updateBank(Long id, Bank updatedBank) {
         Optional<Bank> optionalBank = bankRepository.findById(id);

@@ -68,10 +68,6 @@ public class BankService {
 
     public ResponseEntity<Bank> updateBank(Long id, Bank updatedBank) {
         Optional<Bank> optionalBank = bankRepository.findById(id);
-        if (optionalBank.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
-
         Bank existingBank = optionalBank.get();
         existingBank.setCustomers(updatedBank.getCustomers());
 

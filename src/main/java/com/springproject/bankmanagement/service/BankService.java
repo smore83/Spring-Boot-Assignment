@@ -79,15 +79,5 @@ public class BankService {
         return ResponseEntity.ok(updatedBankEntity);
     }
 
-    public ResponseEntity<Void> deleteBankAll(Long id) {
-        Optional<Bank> optionalBank = bankRepository.findById(id);
-        if (optionalBank.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
 
-        Bank bank = optionalBank.get();
-        bankRepository.delete(bank);
-
-        return ResponseEntity.noContent().build();
-    }
 }

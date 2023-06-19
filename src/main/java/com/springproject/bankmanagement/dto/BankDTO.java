@@ -18,7 +18,6 @@ import java.util.Set;
 public class BankDTO {
     private Long id;
     private String title;
-    private Integer establishyear;
     private String ifscno;
     private Set<Customer> customers;
     private Set<Location> locations;

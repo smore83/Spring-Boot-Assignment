@@ -1,4 +1,4 @@
-package com.springproject.bankmanagement.controller;
+package com.springproject.bankmanagement.rest;
 
 import com.springproject.bankmanagement.dto.LocationDTO;
 import com.springproject.bankmanagement.entity.Location;

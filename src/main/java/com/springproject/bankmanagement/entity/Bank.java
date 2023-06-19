@@ -24,9 +24,6 @@ public class Bank {
     @Column(name = "title",nullable = false)
     private String title;
 
-    @Column(name = "establishyear")
-    private Integer establishYear;
-
     @Column(name = "IFSC")
     private String ifsc;
 

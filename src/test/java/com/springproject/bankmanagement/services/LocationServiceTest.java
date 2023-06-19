@@ -33,8 +33,8 @@ class LocationServiceTest {
     @Test
     void testGetAllLocations() {
         List<Location> locations = new ArrayList<>();
-        locations.add(new Location(1L, "Location 1", "Location 1", new HashSet<>()));
-        locations.add(new Location(2L, "Location 2", "Location 2", new HashSet<>()));
+        locations.add(new Location(1L,  "Location 1", new HashSet<>()));
+        locations.add(new Location(2L, "Location 2", new HashSet<>()));
         when(locationRepository.findAll()).thenReturn(locations);
 
         List<Location> result = locationService.getAllLocations();
@@ -46,7 +46,7 @@ class LocationServiceTest {
 
     @Test
     void testGetLocationById() {
-        Location location = new Location(1L, "Location 1", "Location 1", new HashSet<>());
+        Location location = new Location(1L,  "Location 1", new HashSet<>());
         when(locationRepository.findById(anyLong())).thenReturn(Optional.of(location));
 
         Optional<Location> result = locationService.getLocationById(1L);
@@ -58,7 +58,7 @@ class LocationServiceTest {
 
     @Test
     void testSaveLocation() {
-        Location location = new Location(1L, "Location 1", "Location 1", new HashSet<>());
+        Location location = new Location(1L,  "Location 1", new HashSet<>());
         when(locationRepository.save(location)).thenReturn(location);
 
         Location result = locationService.saveLocation(location);

@@ -1,4 +1,4 @@
-package com.springproject.bankmanagement.controller;
+package com.springproject.bankmanagement.rest;
 
 import com.springproject.bankmanagement.dto.CustomerDTO;
 import com.springproject.bankmanagement.entity.Customer;

@@ -17,7 +17,7 @@ import java.util.Set;
 @AllArgsConstructor
 public class LocationDTO {
     private Long id;
-    private String branchname;
+//    private String branchname;
     private String location;
     @JsonIgnore
     private Set<Bank> banks;

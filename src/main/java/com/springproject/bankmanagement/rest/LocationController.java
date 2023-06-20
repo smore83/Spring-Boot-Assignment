@@ -1,6 +1,7 @@
 package com.springproject.bankmanagement.rest;
 
 import com.springproject.bankmanagement.dto.LocationDTO;
+import com.springproject.bankmanagement.entity.Bank;
 import com.springproject.bankmanagement.entity.Location;
 import com.springproject.bankmanagement.service.LocationService;
 import org.modelmapper.ModelMapper;
@@ -67,6 +68,11 @@ public class LocationController {
     public ResponseEntity<Void> deleteLocation(@PathVariable Long id) {
         Optional<Location> existingLocation = LocationService.getLocationById(id);
         if (existingLocation.isPresent()) {
+            // Remove the location from associated banks
+            for (Bank bank : existingLocation.get().getBanks()) {
+                bank.getLocations().remove(existingLocation.get());
+            }
+
             LocationService.deleteLocation(id);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } else {

@@ -3,6 +3,7 @@ package com.springproject.bankmanagement.rest;
 import com.springproject.bankmanagement.dto.BankDTO;
 import com.springproject.bankmanagement.entity.Bank;
 
+import com.springproject.bankmanagement.entity.Location;
 import com.springproject.bankmanagement.service.BankService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

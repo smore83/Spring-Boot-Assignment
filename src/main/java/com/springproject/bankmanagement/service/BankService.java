@@ -66,14 +66,6 @@ public class BankService {
         return bankRepository.save(bank);
     }
 
-    public ResponseEntity<Bank> updateBank(Long id, Bank updatedBank) {
-        Optional<Bank> optionalBank = bankRepository.findById(id);
-        Bank existingBank = optionalBank.get();
-        existingBank.setCustomers(updatedBank.getCustomers());
-
-        Bank updatedBankEntity = bankRepository.save(existingBank);
-        return ResponseEntity.ok(updatedBankEntity);
-    }
 
 
 }

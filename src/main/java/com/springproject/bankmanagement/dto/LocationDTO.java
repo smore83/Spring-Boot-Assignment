@@ -19,6 +19,7 @@ public class LocationDTO {
     private Long id;
     private String address;
     @JsonIgnore
+
     private Set<Bank> banks;
 
     public LocationDTO(long l, String s) {

@@ -1,6 +1,7 @@
 package com.springproject.bankmanagement.rest;
 
 import com.springproject.bankmanagement.dto.CustomerDTO;
+import com.springproject.bankmanagement.entity.Bank;
 import com.springproject.bankmanagement.entity.Customer;
 import com.springproject.bankmanagement.service.CustomerService;
 import org.modelmapper.ModelMapper;
@@ -68,6 +69,10 @@ public class CustomerController {
     public ResponseEntity<Void> deleteCustomer(@PathVariable Long id) {
         Optional<Customer> existingCustomer = customerService.getCustomerById(id);
         if (existingCustomer.isPresent()) {
+            // Remove the customer from associated banks
+            for (Bank bank : existingCustomer.get().getBanks()) {
+                bank.getCustomers().remove(existingCustomer.get());
+            }
             customerService.deleteCustomer(id);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } else {
